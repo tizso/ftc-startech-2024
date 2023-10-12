@@ -41,8 +41,6 @@ public class HardwareBox
     //public DcMotor  slider      = null;
     //public Servo  claw		= null;
 
-
-
     public static final double  VELOCITY               = 200;
     public static final int  TARGET_POS                = 250;
     public static final int  LEVEL_POS                 = 100;

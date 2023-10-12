@@ -65,7 +65,7 @@ public class Driver extends LinearOpMode {
 
                 }
 
-                double armSpeed = 0.5;
+                //double armSpeed = 0.5;
 
                 if(gamepad2.a){
 
