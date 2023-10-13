@@ -1,12 +1,13 @@
 package org.firstinspires.ftc.teamcode.startech;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
 import org.firstinspires.ftc.teamcode.HardwareBox;
 
-
+@Disabled
 @TeleOp(name="DriverMode", group="StarTech")
 
 public class Driver extends LinearOpMode {
