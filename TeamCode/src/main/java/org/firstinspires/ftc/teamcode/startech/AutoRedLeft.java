@@ -110,7 +110,7 @@ public class AutoRedLeft extends LinearOpMode{
     //Set all position based on selected staring location and Build Autonomous Trajectory
     public void buildAuto() {
         initPose = new Pose2d(63, -36, Math.toRadians(180));//Starting pose
-        midWayPose = new Pose2d(3, -36, Math.toRadians(180)); //partea rosie
+        midWayPose = new Pose2d(3 , -36, Math.toRadians(180)); //partea rosie
         startParkPose = new Pose2d(8, -35, Math.toRadians(180)); //Choose the pose to move forward towards signal cone
 
         dropConePose0 = new Pose2d(4, -35, Math.toRadians(122)); //Choose the pose to move to the stack of cones
