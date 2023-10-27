@@ -1,5 +1,7 @@
 package org.firstinspires.ftc.teamcode.startech;
 
+import android.util.Size;
+
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import org.firstinspires.ftc.robotcore.external.hardware.camera.BuiltinCameraDirection;
@@ -134,6 +136,7 @@ public class Autonom2024 extends LinearOpMode {
                 //.setIsModelQuantized(true)
                 .setModelInputSize(300)
                 .setModelAspectRatio(16.0 / 9.0)
+                .setMaxNumRecognitions(1)
                 .build();
 
         // -----------------------------------------------------------------------------------------
@@ -143,6 +146,7 @@ public class Autonom2024 extends LinearOpMode {
         if (USE_WEBCAM) {
             myVisionPortal = new VisionPortal.Builder()
                     .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
+                    .setCameraResolution(new Size(960, 720))
                     .addProcessors(tfod, aprilTag)
                     .build();
         } else {
