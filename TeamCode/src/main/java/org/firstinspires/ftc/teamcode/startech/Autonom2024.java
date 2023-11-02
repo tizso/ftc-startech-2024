@@ -32,12 +32,13 @@ public class Autonom2024 extends LinearOpMode {
     //For pixels
     //private static final String TFOD_MODEL_ASSET = "MyModelStoredAsAsset.tflite";
     //for our model
-    private static final String TFOD_MODEL_FILE = "/sdcard/FIRST/tflitemodels/startech.tflite";
+    private static final String TFOD_MODEL_FILE = "/sdcard/FIRST/tflitemodels/startech2.tflite";
     /**
     * If we use default object, Pixels, change the labels name from "stratech" to "Pixel"
     * */
     private static final String[] LABELS = {
-            "startech",
+            "StarTechBLue",
+            "StarTechRed"
     };
     private TfodProcessor tfod;
     public DriveTrain driveTrain;
@@ -132,13 +133,12 @@ public class Autonom2024 extends LinearOpMode {
                 // The following default settings are available to un-comment and edit as needed to
                 // set parameters for custom models.
                 .setModelLabels(LABELS)
-                //.setIsModelTensorFlow2(true)
-                //.setIsModelQuantized(true)
-                .setModelInputSize(300)
+                .setIsModelTensorFlow2(true)
+                .setIsModelQuantized(true)
+                .setModelInputSize(1200)
                 .setModelAspectRatio(16.0 / 9.0)
-                .setMaxNumRecognitions(1)
                 .build();
-
+        tfod.setMinResultConfidence(0.095f);
         // -----------------------------------------------------------------------------------------
         // Camera Configuration
         // -----------------------------------------------------------------------------------------
@@ -146,8 +146,9 @@ public class Autonom2024 extends LinearOpMode {
         if (USE_WEBCAM) {
             myVisionPortal = new VisionPortal.Builder()
                     .setCamera(hardwareMap.get(WebcamName.class, "Webcam 1"))
-                    .setCameraResolution(new Size(960, 720))
                     .addProcessors(tfod, aprilTag)
+                    .enableLiveView(true)
+                    .setCameraResolution(new Size(640, 480))
                     .build();
         } else {
             myVisionPortal = new VisionPortal.Builder()
